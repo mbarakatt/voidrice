@@ -36,6 +36,7 @@ alias trem="transmission-remote"
 alias mkd="mkdir -pv"
 alias ref="shortcuts && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
+# alias battery="acpi"
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
