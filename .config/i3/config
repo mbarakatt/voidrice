@@ -301,8 +301,8 @@ bindsym $mod+F12	exec $term -e nmtui
 
 # #---Arrow Keys---# #
 bindsym $mod+Left		focus left
-bindsym $mod+Down		focus down
-bindsym $mod+Up			focus up
+#bindsym $mod+Down		focus down
+#bindsym $mod+Up			focus up
 bindsym $mod+Right 		focus right
 bindsym $mod+Shift+Left		move left
 bindsym $mod+Shift+Down		move down
