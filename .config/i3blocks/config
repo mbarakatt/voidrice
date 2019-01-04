@@ -35,11 +35,11 @@ label=📬
 interval=180
 signal=12
 
-#[memory]
+[memory]
 interval=30
 label=🧠
 
-#[cpu]
+[cpu]
 interval=15
 label=💻
 
@@ -48,12 +48,12 @@ interval=once
 signal=10
 
 #[disk]
-interval=60
-command=disk /
+# interval=60
+# command=disk /
 
-#[disk]
-#interval=60
-#command=disk /home 🏠
+[disk]
+interval=60
+command=disk /home 🏠
 
 [battery]
 command=battery BAT0
