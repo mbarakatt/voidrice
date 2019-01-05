@@ -4,7 +4,7 @@
 "  \ V /| | | | | | | | | (__
 "   \_/ |_|_| |_| |_|_|  \___|
 
-let mapleader ="\"
+let mapleader ="\\"
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'

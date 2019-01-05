@@ -23,6 +23,7 @@ alias sdn="sudo shutdown now"
 alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
 
 # Some aliases
+alias vim="/usr/bin/nvim"
 alias e="$EDITOR"
 alias p="sudo pacman"
 alias SS="sudo systemctl"
