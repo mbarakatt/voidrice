@@ -1,5 +1,7 @@
-zoom_in K XF86Forward Plus Minus
-zoom_out J XF86Back
+zoom_in K XF86Forward plus
+zoom_out J XF86Back minus
+zoom_fit equal
+zoom_fill s
 next_img L space
 prev_img BackSpace H
 
