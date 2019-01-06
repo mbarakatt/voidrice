@@ -12,6 +12,24 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-commentary'
+Plug 'mattn/emmet-vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'Shougo/deoplete.nvim' " { 'do': ':UpdateRemotePlugins' }
+Plug 'fatih/vim-go'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Plug 'tmhedberg/SimpylFold'
+" Plug 'ervandew/supertab'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'scrooloose/syntastic'
+" Plug 'davidhalter/jedi-vim'
+" Plug 'lervag/vimtex'
+" Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-surround'
 call plug#end()
 
 " Some basics:
@@ -215,3 +233,199 @@ call plug#end()
 	autocmd FileType xml inoremap ,e <item><Enter><title><++></title><Enter><guid<space>isPermaLink="false"><++></guid><Enter><pubDate><Esc>:put<Space>=strftime('%a, %d %b %Y %H:%M:%S %z')<Enter>kJA</pubDate><Enter><link><++></link><Enter><description><![CDATA[<++>]]></description><Enter></item><Esc>?<title><enter>cit
 	autocmd FileType xml inoremap ,a <a href="<++>"><++></a><++><Esc>F"ci"
 
+" MY STUFF
+
+" Miscellaneous
+	filetype plugin indent on " required (but why?)
+
+	" Should speed up thing  (scrolling, moving, etc) in vim when using tmux"
+	set ttyfast
+
+	" Highlight searched words with # and * for eg.
+	set hlsearch
+
+	" Turn backup off, since most stuff is in SVN, git et.c anyway...
+	set nobackup
+	set nowb
+	set noswapfile
+
+	" Use * and # to search for the current selection
+	vnoremap * y/<C-R>"<CR>
+	vnoremap # y?<C-R>"<CR>
+
+	" Can edit crontab file
+	au BufEnter /tmp/crontab.* setl backupcopy=yes
+
+
+" deoplete settings
+	let g:deoplete#enable_at_startup = 1
+	" deoplete tab-complete
+	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" omnisharp-vim settings
+	let g:Omnisharp_start_server = 1
+	let g:OmniSharp_server_path = '/Users/mbarakatt/.omnisharp/omnisharp-roslyn/OmniSharp.exe'
+	let g:OmniSharp_server_use_mono = 1
+	let g:OmniSharp_timeout=5
+	set completeopt=longest,menuone,preview
+	set previewheight=5
+
+
+" you-complete-me settings
+	" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+	" let g:ycm_server_keep_logfiles = 1
+
+	" Load ycm_extra_conf.py in current directory without confirmation
+	" let g:ycm_extra_conf_globlist = ['./*']
+
+	" can use both ycm and jedi-vim at the same time.
+	" let g:jedi#completions_enabled = 0
+	" let g:jedi#auto_initialization = 0
+
+	" let g:ycm_auto_trigger = 1
+	" let g:ycm_min_num_of_chars_for_completion =
+
+	" semantic triggers for ref and cite in tex mode
+	" let g:ycm_semantic_triggers = {
+	" \  'tex'  : ['\ref{','\cite{'],
+	" \ }
+
+" jedi-vim settings
+	" let g:jedi#use_splits_not_buffers = "left"
+
+" vim-latex settings
+	" for skim vimlatex syncronyzation
+	" let g:vimtex_view_method = 'skim'
+	" let g:vimtex_view_general_viewer = 'zathura'
+	" let g:vimtex_view_general_options = '@line @pdf @tex'
+	" let g:vimtex_view_general_viewer = '/Users/mbarakat/Applications/Skim.app/Contents/SharedSupport/displayline'
+	" let g:vimtex_view_general_options = '@line @pdf @tex'
+	" No Spell check in latex comments
+	let g:tex_comment_nospell=1
+	let g:vimtex_complete_close_braces=1
+	" Spellcheck in latex-vim mode
+	autocmd FileType tex set spelllang=en spell
+
+let g:tex_fold_enabled = 1
+" set foldmethod=expr
+" set foldexpr=vimtex#fold#level(v:1)
+" set foldtext=vimtex#fold#text()
+" Don't fold the first level of things
+" set foldlevel=1
+
+
+
+" Settings for vim-commentary
+	autocmd FileType python set commentstring=#\ %s
+	autocmd FileType vim set commentstring=\"\ %s
+	autocmd FileType sh set commentstring=#\ %s
+	autocmd FileType tex set commentstring=%\ %s
+	autocmd FileType cs set commentstring=//\ %s
+
+"Settings for syntastic
+	" let g:syntastic_quiet_messages = { "type": "style" } " No style messages
+	" set statusline+=%#warningmsg#
+	" set statusline+=%{SyntasticStatuslineFlag()}
+	" set statusline+=%*
+
+	" let g:syntastic_always_populate_loc_list = 1
+	" let g:syntastic_auto_loc_list = 0  " remove the list of errors at the bottom.
+	" let g:syntastic_check_on_open = 1
+	" let g:syntastic_check_on_wq = 0
+	" let g:syntastic_python_checkers = ['flake8']
+	" " W191: ignore tab as indentation,
+	" " E501: line to long
+	" " F403 thinks import _ from * is an error.
+	" " E128 when doing multi line code and the indentation is wrong.
+	" let g:syntastic_python_flake8_args = '--ignore=W191,E501,F403,E128'
+
+
+
+""""""""""""""" MORE RANDOM STUFF """""""""""""""""
+
+" Return to last edit position when opening files
+	autocmd BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\ exe "normal! g`\"" |
+	\ endif
+" Remember info about open buffers on close
+	set viminfo^=%
+
+"Replace selected text by something else. Select, then enter C-r then type the replacing text.
+	vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
+"Save using \s
+	noremap <Leader>s :update<CR>
+
+"Single character insertion
+	nmap <Space> i_<Esc>r
+
+" Smart way to move between windows
+	" map <C-j> <C-W>j
+	" map <C-k> <C-W>k
+	" map <C-h> <C-W>h
+	" map <C-l> <C-W>l
+	" map <C-p> <C-W>p
+	" map <C-\> <C-W>\
+
+" The number of spaces a tab is. the following two lines must be present for > to work properly
+	set tabstop=4
+	set shiftwidth=4
+
+" backspace that makes sense
+	set backspace=indent,eol,start
+	set whichwrap+=<,>,h,l
+
+" Treat long lines as break lines (useful when moving around in them)
+	map j gj
+	map k gk
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+	func! DeleteTrailingWS()
+	exe "normal mz"
+	%s/\s\+$//ge
+	exe "normal `z"
+	endfunc
+	autocmd BufWrite *.py :call DeleteTrailingWS()
+
+" This will execute the update command on leaving vim to a tmux pane. Default is Zero
+	let g:tmux_navigator_save_on_switch = 1
+
+" Always show the status bar in vim
+	" set laststatus=2
+
+" Return to normal mode with jj
+	inoremap jj <Esc>
+
+" Compile cs files using dotnet build
+	autocmd FileType cs inoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
+	autocmd FileType cs nnoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
+
+" Run py files using python3
+	autocmd FileType python inoremap <F5> <Esc>:wa<Enter>:!python3<space><c-r>%<Enter>
+	autocmd FileType python nnoremap <F5> <Esc>:wa<Enter>:!python3<space><c-r>%<Enter>
+
+" Marking code for students
+	nnoremap Pc o// Correction [[  points ]]<space><Esc>F[<right><right>i
+	"nnoremap Pt <Esc>:w<Enter>:!CountPoints<space>%<Enter>
+	" nnoremap Pt <Esc>:wa<Enter>:!CountPoints<space>$( ls *.cpp<space>*.h<space>*.cs<space>*.py)<Enter>
+	nnoremap Pt <Esc>:wa<Enter>:redir => scriptn \| sil exe 'args' \| redir end \| echo(system('CountPoints',scriptn))<Enter>
+
+" Francais accent shortcuts (dangerous?)
+	" inoremap ee é
+	" inoremap 'e è
+	" inoremap ^e ê
+	" inoremap aa à
+
+" Quit and save all
+	nnoremap <leader>s <Esc>:wqa<Enter>
+
+" To use fzf in Vim, add the following line to your .vimrc:
+  set rtp+=/usr/local/opt/fzf
+
+" Color, not ideal but better.
+	" hi StatusLine ctermbg=4 ctermfg=black   " 8
+	" hi Search cterm=NONE ctermfg=white ctermbg=grey
+	"
+" Airline theme
+	let g:airline_theme='dracula'
