@@ -14,6 +14,9 @@ alias sdn="sudo shutdown now"
 alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
 alias gua="git remote | xargs -L1 git push --all"
 
+# Exporting PATH
+export PATH="~/Dropbox/bin:$PATH"
+
 # Some aliases
 alias vim="/usr/bin/nvim"
 alias e="$EDITOR"
@@ -42,6 +45,7 @@ alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax hi
 # Internet
 alias yt="youtube-dl --add-metadata -i" # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
+alias yta="youtube-viewer"
 alias YT="youtube-viewer"
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}

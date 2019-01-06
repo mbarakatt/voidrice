@@ -32,3 +32,55 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 
 # Switch escape and caps if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+
+# Miscelaneous
+	alias compilec="g++-8 --std=c++11 *.cpp -fextended-identifiers"
+	alias vimall='vim -p $(ls *.{cpp,h,py,cs})'
+	alias mountmusic='umount -f ~/music-collection/ ; sshfs 192.168.2.16:Dropbox/Music\ Collection/  ~/music-collection/'
+	alias mount-ntfs-rw='sudo umount /dev/disk2s1 ; sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
+	alias restartchunkwm="brew services restart chunkwm"
+
+# Notes
+	alias notes="vim -p ~/notes/todos/*.md ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md ~/notes/personnel/2018/2018.md"
+	alias food="vim ~/notes/todos/food.md"
+	alias buy="vim ~/notes/todos/buy.md"
+	alias todos="vim ~/notes/todos/todos.md"
+	alias daily="vim ~/notes/todos/daily.md"
+	alias remind="vim ~/notes/todos/reminders.md"
+	alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"
+
+# Addition ranger setting
+# Compatible with ranger 1.4.2 through 1.7.*
+#
+# Automatically change the directory in bash after closing ranger
+#
+# This is a bash function for .bashrc to automatically change the directory to
+# the last visited one after ranger quits.
+# To undo the effect of this function, you can type "cd -" to return to the
+# original directory.
+	function ranger-cd {
+		tempfile="$(mktemp -t tmp.XXXXXX)"
+		ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+		test -f "$tempfile" &&
+		if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+			cd -- "$(cat "$tempfile")"
+		fi
+		rm -f -- "$tempfile"
+	}
+	# alias ranger=ranger-cd
+
+
+# To cycle through options
+bind "TAB:menu-complete"
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+
+# Change diretory with fzf
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+# Create new projects
+alias createconsole="dotnet new console; dotnet new sln; dotnet sln add *.csproj"
