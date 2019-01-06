@@ -145,6 +145,9 @@ bindsym $mod+Shift+r		exec --no-startup-id winresize
 bindsym $mod+t			split toggle
 bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
 
+bindsym $mod+v			split vertical ; focus right ; move left 30
+bindsym $mod+Shift+V		split horizontal ; focus down ; move up 30
+
 bindsym $mod+y			exec $term -e calcurse
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
