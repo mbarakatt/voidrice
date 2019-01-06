@@ -4,7 +4,7 @@
 "  \ V /| | | | | | | | | (__
 "   \_/ |_|_| |_| |_|_|  \___|
 
-let mapleader =" "
+let mapleader ="\\"
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
@@ -19,7 +19,8 @@ call plug#end()
 	filetype plugin on
 	syntax on
 	set encoding=utf-8
-	set number relativenumber
+	"	set number relativenumber
+	set nonumber
 " Enable autocompletion:
 	set wildmode=longest,list,full
 " Disables automatic commenting on newline:
@@ -91,9 +92,9 @@ call plug#end()
 	autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
 
 " Navigating with guides
-	inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-	vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
-	map <Space><Tab> <Esc>/<++><Enter>"_c4l
+"	inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+"	vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+"	map <Space><Tab> <Esc>/<++><Enter>"_c4l
 
  "____        _                  _
 "/ ___| _ __ (_)_ __  _ __   ___| |_ ___

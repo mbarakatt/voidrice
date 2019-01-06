@@ -1,4 +1,4 @@
-zoom_in K XF86Forward
+zoom_in K XF86Forward Plus Minus
 zoom_out J XF86Back
 next_img L space
 prev_img BackSpace H
