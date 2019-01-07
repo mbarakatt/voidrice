@@ -16,6 +16,7 @@
 .config/mpd/sticker.sql
 .config/neofetch/
 .config/nvim/.netrwhist
+.config/wall.png
 .esd_auth
 .fehbg
 .gnupg/
