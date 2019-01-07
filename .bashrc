@@ -67,6 +67,7 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 	alias daily="vim ~/notes/todos/daily.md"
 	alias remind="vim ~/notes/todos/reminders.md"
 	alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"
+	alias arch-guide="vim ~/Dropbox/notes/Personnel/arch-guide/arch-guide.md"
 
 # Addition ranger setting
 # Compatible with ranger 1.4.2 through 1.7.*
