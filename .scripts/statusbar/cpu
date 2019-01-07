@@ -9,4 +9,8 @@ $(ps axch -o cmd:15,%cpu --sort=-%cpu | head)" ;;
 - % is of single core." ;;
 esac
 
-sensors | awk '/TC0P/ {print $2 $3}'
+cpu_work=$(expr 100 - $(mpstat | tail -c 6 | head -c 2))
+cpu_temp=$( sensors | awk '/TC0P/ {print $2 $3}' )
+
+printf "${cpu_work}%% ${cpu_temp}"
+

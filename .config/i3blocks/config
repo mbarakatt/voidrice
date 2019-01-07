@@ -47,9 +47,9 @@ label=💻
 interval=once
 signal=10
 
-#[disk]
-# interval=60
-# command=disk /
+[disk]
+interval=60
+command=disk /
 
 [disk]
 interval=60
@@ -66,5 +66,5 @@ interval=30
 [internet]
 interval=20
 
-[help]
+#[help]
 #interval=once
