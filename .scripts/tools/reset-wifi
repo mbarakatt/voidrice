@@ -1,0 +1,2 @@
+nmcli r wifi off
+nmcli r wifi on
