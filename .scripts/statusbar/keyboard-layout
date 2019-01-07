@@ -1,0 +1,9 @@
+key=$(xkb-switch)
+
+if [ $key = "us" ]
+then
+printf 🇺🇸
+else
+printf 🇨🇦
+fi
+

@@ -68,3 +68,7 @@ interval=20
 
 #[help]
 #interval=once
+
+[keyboard-layout]
+command=keyboard-layout
+interval=2
