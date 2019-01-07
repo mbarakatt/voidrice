@@ -5,4 +5,5 @@
 
 xset r rate 200 50
 
+exec dropbox &
 exec i3
