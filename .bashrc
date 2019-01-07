@@ -52,3 +52,18 @@ shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o
 se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
+
+# Miscelaneous
+	alias compilec="g++-8 --std=c++11 *.cpp -fextended-identifiers"
+	alias vimall='vim -p $(ls *.{cpp,h,py,cs})'
+	alias mountmusic='umount -f ~/music-collection/ ; sshfs 192.168.2.16:Dropbox/Music\ Collection/  ~/music-collection/'
+	alias mount-imac='umount -f ~/mount/imac ; sshfs imac:  ~/mount/imac'
+
+# Notes
+	alias notes="vim -p ~/notes/todos/*.md ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md ~/notes/personnel/2018/2018.md"
+	alias food="vim ~/notes/todos/food.md"
+	alias buy="vim ~/notes/todos/buy.md"
+	alias todos="vim ~/notes/todos/todos.md"
+	alias daily="vim ~/notes/todos/daily.md"
+	alias remind="vim ~/notes/todos/reminders.md"
+	alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"

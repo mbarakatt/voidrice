@@ -33,21 +33,6 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 # Switch escape and caps if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 
-# Miscelaneous
-	alias compilec="g++-8 --std=c++11 *.cpp -fextended-identifiers"
-	alias vimall='vim -p $(ls *.{cpp,h,py,cs})'
-	alias mountmusic='umount -f ~/music-collection/ ; sshfs 192.168.2.16:Dropbox/Music\ Collection/  ~/music-collection/'
-	alias mount-ntfs-rw='sudo umount /dev/disk2s1 ; sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
-	alias restartchunkwm="brew services restart chunkwm"
-
-# Notes
-	alias notes="vim -p ~/notes/todos/*.md ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md ~/notes/personnel/2018/2018.md"
-	alias food="vim ~/notes/todos/food.md"
-	alias buy="vim ~/notes/todos/buy.md"
-	alias todos="vim ~/notes/todos/todos.md"
-	alias daily="vim ~/notes/todos/daily.md"
-	alias remind="vim ~/notes/todos/reminders.md"
-	alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"
 
 # Addition ranger setting
 # Compatible with ranger 1.4.2 through 1.7.*
@@ -84,3 +69,4 @@ fd() {
 }
 # Create new projects
 alias createconsole="dotnet new console; dotnet new sln; dotnet sln add *.csproj"
+
