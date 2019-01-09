@@ -45,7 +45,7 @@ alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax hi
 # Internet
 alias yt="youtube-dl --add-metadata -i" # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
-alias ytv="youtube-viewer -SV"
+alias ytv="youtube-viewer --results=10 -SV"
 alias YT="youtube-viewer"
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
