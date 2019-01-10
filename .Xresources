@@ -19,3 +19,6 @@
 *.alpha: 235
 !! Set a default font and font size as below:
 !! *.font: Monospace-14;
+
+!! Settings for high DPI
+Xft.dpi: 120
