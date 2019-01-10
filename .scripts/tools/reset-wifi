@@ -1,9 +1,14 @@
 # nmcli r wifi off
 # nmcli r wifi on
 # https://unix.stackexchange.com/questions/158328/network-manager-not-listing-wifi
-sudo -A systemctl restart wpa_supplicant.service
+#sudo -A systemctl restart wpa_supplicant.service
 # check list
 # nmcli dev wifi list
 # connect
 # nmcli --ask connection up <ssid>
+
+# got brcmfmac by typing lspci -knn
+sudo -A modprobe -r brcmfmac
+sleep 4 # could try increasing this
+sudo -A modprobe brcmfmac
 
