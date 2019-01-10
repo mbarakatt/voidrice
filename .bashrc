@@ -45,7 +45,7 @@ alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax hi
 # Internet
 alias yt="youtube-dl --add-metadata -i" # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
-alias ytv="youtube-viewer --results=10 -SV"
+alias ytv="youtube-viewer --results=20 -SV"
 alias YT="youtube-viewer"
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
@@ -60,7 +60,7 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 	alias mount-imac='umount -f ~/mount/imac ; sshfs imac:  ~/mount/imac'
 
 # Notes
-	alias notes="vim -p ~/notes/todos/*.md ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md ~/notes/personnel/2018/2018.md"
+	alias notes="vim -p ~/notes/todos/*.md ~/notes/personnel/2019/2019.md"
 	alias food="vim ~/notes/todos/food.md"
 	alias buy="vim ~/notes/todos/buy.md"
 	alias todos="vim ~/notes/todos/todos.md"

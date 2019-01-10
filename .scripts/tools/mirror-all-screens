@@ -1,0 +1,2 @@
+xrandr $(xrandr -q | grep " connected" | awk '{print $1}' | awk '{ print "--output", $1, "--auto"}' | tr '\n' ' ')
+
