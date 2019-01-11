@@ -35,6 +35,7 @@ alias ref="shortcuts >/dev/null ; source ~/.bashrc" # Refresh shortcuts manually
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 alias x="sxiv -ft *"
 alias lp="pacman -Qett --color=always | less"
+alias yay-update-system="yay -Syu --devel --timeupdate"
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
