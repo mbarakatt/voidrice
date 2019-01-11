@@ -111,7 +111,7 @@ bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
 bindsym $mod+Shift+space 	floating toggle
 # bindsym $mod+space		focus mode_toggle
-bindsym $mod+space			exec xkb-switch -n
+bindsym $mod+space			exec xkb-switch -n ; exec pkill -RTMIN+13 i3blocks
 
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"

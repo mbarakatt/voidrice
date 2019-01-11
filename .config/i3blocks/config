@@ -71,4 +71,5 @@ interval=20
 
 [keyboard-layout]
 command=keyboard-layout
-interval=2
+interval=once
+signal=13

@@ -1,4 +1,9 @@
-http://lukesmith.xyz/rss.xml
-https://notrelated.libsyn.com/rss
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
+"query:Unread Articles:unread = \"yes\""
+# Defaults
+http://lukesmith.xyz/rss.xml "tech"
+https://notrelated.libsyn.com/rss "pod"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "tech"
 https://www.archlinux.org/feeds/news/ "tech"
+https://www.reddit.com/r/teslamotors.rss
+
+
