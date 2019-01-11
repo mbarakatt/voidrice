@@ -1,0 +1,1 @@
+barriers -f --no-tray --debug INFO --name mbp --enable-crypto -c /home/mbarakatt/.local/share/barrier/.barrier.conf --address :24800
