@@ -1,0 +1,20 @@
+directory: ~/music            # The default library root directory
+library: ~/music/library.db   # The default library database file to use.
+
+import:
+    move: yes
+    copy: yes
+    resume: ask
+
+art_filename: cover
+
+paths:
+        default: $albumartist/$year $album%aunique{}/$track $title
+        singleton: singletons/$artist - $title
+        comp: compilation/$album/$track $title
+
+plugins: fetchart embedart
+pluginspath: ~/beets/myplugins
+
+embedart:
+    remove_art_file: yes
