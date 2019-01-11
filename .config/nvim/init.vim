@@ -18,6 +18,7 @@ Plug 'mattn/emmet-vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'Shougo/deoplete.nvim' " { 'do': ':UpdateRemotePlugins' }
+" Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
