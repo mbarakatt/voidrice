@@ -10,7 +10,7 @@ $(ps axch -o cmd:15,%cpu --sort=-%cpu | head)" ;;
 esac
 
 cpu_work=$(expr 100 - $(mpstat 2 1 | tail -c 6 | head -c 2))
-cpu_temp=$( sensors | awk '/TC0P/ {print $2 $3}' )
+cpu_temp=$( sensors | awk '/TC0P/ {print $2}' | cut -c2,3,6,7,8 )
 
 printf "${cpu_work}%% ${cpu_temp}"
 
