@@ -296,7 +296,7 @@ bindsym $mod+Shift+F4		exec --no-startup-id prompt "Force suspend computer?" "$s
 bindsym $mod+F5		exec --no-startup-id $netrefresh
 bindsym $mod+F6		exec --no-startup-id $term -e transmission-remote-cli
 bindsym $mod+F7		exec --no-startup-id td-toggle
-bindsym $mod+F8		exec --no-startup-id ~/.config/mutt/etc/mailsync.sh
+# bindsym $mod+F8		exec --no-startup-id ~/.config/mutt/etc/mailsync.sh
 bindsym $mod+F9		exec --no-startup-id dmenumount
 bindsym $mod+F10	exec --no-startup-id dmenuumount
 bindsym $mod+F11	exec --no-startup-id reset-wifi # wait does mod+F5 does the trick?
@@ -402,7 +402,8 @@ bindsym XF86TouchpadOff		exec --no-startup-id synclient TouchpadOff=1
 bindsym XF86Suspend		exec --no-startup-id lockscreen
 bindsym XF86Close		kill
 bindsym XF86WebCam		exec --no-startup-id camtoggle
-bindsym XF86Mail		exec $term -e neomutt && pkill -RTMIN+12 i3blocks
+# bindsym XF86Mail		exec $term -e neomutt && pkill -RTMIN+12 i3blocks
+bindsym XF86Mail		exec --no-startup-id thunderbird
 bindsym XF86Messenger		exec $term -e weechat
 bindsym XF86Search		exec $BROWSER https://duckduckgo.com
 ##bindsym XF86Go			exec
