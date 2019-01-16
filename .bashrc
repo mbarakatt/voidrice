@@ -36,6 +36,7 @@ alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
 alias x="sxiv -ft *"
 alias lp="pacman -Qett --color=always | less"
 alias yay-update-system="yay -Syu --devel --timeupdate"
+alias doc2pdf="libreoffice --headless --convert-to pdf"
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -48,6 +49,8 @@ alias yt="youtube-dl --add-metadata -i" # Download video link
 alias yta="yt -x -f bestaudio/best" # Download only audio
 alias yts="youtube-viewer --results=20 -SV" # for youtube subscriptions
 alias YT="youtube-viewer"
+
+
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}

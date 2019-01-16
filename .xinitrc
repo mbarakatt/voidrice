@@ -3,7 +3,7 @@
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-xset r rate 220 30
+xset r rate 230 30
 if [ "$HOSTNAME" = "archlinux-imac" ] ; then
 	exec .scripts/tools/start-barrierc-imac &
 # else
