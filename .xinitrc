@@ -11,4 +11,5 @@ if [ "$HOSTNAME" = "archlinux-imac" ] ; then
 fi
 
 exec dropbox &
+exec redshift &
 exec i3
