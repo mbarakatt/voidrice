@@ -27,8 +27,8 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'scrooloose/syntastic'
 " Plug 'davidhalter/jedi-vim'
-" Plug 'lervag/vimtex'
-" Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
+Plug 'lervag/vimtex'
+Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-surround'
 call plug#end()
@@ -401,6 +401,10 @@ let g:tex_fold_enabled = 1
 " Compile cs files using dotnet build
 	autocmd FileType cs inoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
 	autocmd FileType cs nnoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
+
+" Compile latex file using pdflatex
+	autocmd FileType tex inoremap <F5> <Esc>:wa<Enter>:!pdflatex %<Enter>
+	autocmd FileType tex nnoremap <F5> <Esc>:wa<Enter>:!pdflatex %<Enter>
 
 " Run py files using python3
 	autocmd FileType python inoremap <F5> <Esc>:wa<Enter>:!python3<space><c-r>%<Enter>
