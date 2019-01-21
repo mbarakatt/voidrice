@@ -138,7 +138,8 @@ bindsym $mod+w			exec $term -e nmtui
 bindsym $mod+Shift+w		exec $BROWSER
 
 
-bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
+#bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
+bindsym $mod+e			exec --no-startup-id thunderbird
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
 bindsym $mod+r 			exec $term -e ranger
@@ -317,10 +318,10 @@ bindsym $mod+Shift+Right 	move right
 # #---Media Keys---# #
 
 # Volume keys
-bindsym $mod+plus		exec --no-startup-id lmc up 5
-bindsym $mod+Shift+plus		exec --no-startup-id lmc up 15
-bindsym $mod+minus 		exec --no-startup-id lmc down 5
-bindsym $mod+Shift+minus	exec --no-startup-id lmc down 15
+bindsym $mod+plus		exec --no-startup-id lmc up 8
+bindsym $mod+Shift+plus		exec --no-startup-id lmc up 20
+bindsym $mod+minus 		exec --no-startup-id lmc down 8
+bindsym $mod+Shift+minus	exec --no-startup-id lmc down 20
 bindsym $mod+less 		exec --no-startup-id lmc prev
 bindsym $mod+Shift+less		exec --no-startup-id lmc replay
 bindsym $mod+greater		exec --no-startup-id lmc next
@@ -417,8 +418,8 @@ bindsym $mod+Up			exec --no-startup-id light -A 1
 bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
 bindsym XF86Display		exec --no-startup-id displayselect
 #bindsym XF86KbdLightOnOff	exec
-#bindsym XF86KbdBrightnessDown	exec
-#bindsym XF86KbdBrightnessUp	exec
+bindsym XF86KbdBrightnessDown	exec --no-startup-id kb-light - 8
+bindsym XF86KbdBrightnessUp		exec --no-startup-id kb-light + 8
 ##bindsym XF86Reply		exec
 ##bindsym XF86MailForward	exec
 ##bindsym XF86Save		exec
