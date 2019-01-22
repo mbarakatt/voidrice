@@ -4,7 +4,7 @@
 "  \ V /| | | | | | | | | (__
 "   \_/ |_|_| |_| |_|_|  \___|
 
-let mapleader ="\\"
+let mapleader =" " " space works well with both US an CSA keyboard layouts
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
@@ -29,9 +29,17 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'davidhalter/jedi-vim'
 Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
+Plug 'dpelle/vim-Grammalecte'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-surround'
 call plug#end()
+
+" vim-Grammalecte
+	let g:grammalecte_cli_py='/usr/bin/cli.py' " had to create a simlink that pointed to grammalecte_cli_py
+	map <leader>o <Esc>:GrammalecteCheck<CR><C-j><Down><Down>zt<C-k><C-w>=
+	map <leader>O <Esc>:GrammalecteClear<CR>
+
+	"nnoremap Pt <Esc>:wa<Enter>:redir => scriptn \| sil exe 'args' \| redir end \| echo(system('CountPoints',scriptn))<Enter>
 
 " Some basics:
 	set nocompatible
@@ -49,7 +57,7 @@ call plug#end()
 	map <leader>f :Goyo \| set linebreak<CR>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
+	"map <leader>o :setlocal spell! spelllang=en_us<CR>
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
@@ -359,7 +367,7 @@ let g:tex_fold_enabled = 1
 	noremap <Leader>s :update<CR>
 
 "Single character insertion
-	nmap <Space> i_<Esc>r
+	" nmap <Space> i_<Esc>r conflicting with new leader
 
 " Smart way to move between windows
 	" map <C-j> <C-W>j
