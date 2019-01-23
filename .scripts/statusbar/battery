@@ -21,8 +21,10 @@ if [ "$capacity" -ge 75 ]; then
 	color="$color10"
 elif [ "$capacity" -ge 50 ]; then
 	color="$color15"
-elif [ "$capacity" -ge 25 ]; then
+elif [ "$capacity" -ge 15 ]; then
 	color="$color11"
+elif [ "$capacity" -ge 5 ]; then
+	color="$color9"
 else
 	color="$color9"
 	warn="❗"
