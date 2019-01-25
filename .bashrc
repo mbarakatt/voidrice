@@ -58,7 +58,7 @@ sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 
 # Miscelaneous
-	alias compilec="g++-8 --std=c++11 *.cpp -fextended-identifiers"
+	alias compilec="g++ --std=c++11 *.cpp -fextended-identifiers"
 	alias vimall='vim -p $(ls *.{cpp,h,py,cs})'
 	alias mountmusic='umount -f ~/music-collection/ ; sshfs 192.168.2.16:Dropbox/Music\ Collection/  ~/music-collection/'
 	alias mount-imac='umount -f ~/mount/imac ; sshfs imac:  ~/mount/imac'
@@ -72,6 +72,7 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 	alias remind="vim ~/notes/todos/reminders.md"
 	alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"
 	alias arch-guide="vim ~/Dropbox/notes/Personnel/arch-guide/arch-guide.md"
+	alias drive-pull="drive pull --ignore-name-clashes -depth 4"
 
 # Addition ranger setting
 # Compatible with ranger 1.4.2 through 1.7.*
