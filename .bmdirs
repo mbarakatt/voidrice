@@ -1,10 +1,10 @@
 # You can add comments to these files with #
 h	~/
-d	~/Documents
 D	~/Downloads
-m	~/Music
-pp	~/Pictures
-vv	~/Videos
+m	~/music
 cf	~/.config
 sc	~/.scripts
 mn	/mnt
+2	/home/mbarakatt/Dropbox/clg/cours/204
+e	/home/mbarakatt/Dropbox/clg/cours/edb
+k	/home/mbarakatt/gdrive/CLG/KH5/

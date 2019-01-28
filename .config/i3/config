@@ -137,7 +137,6 @@ bindsym $mod+w			exec $term -e nmtui
 # bindsym $mod+Shift+w		exec --no-startup-id $BROWSER
 bindsym $mod+Shift+w		exec $BROWSER
 
-
 #bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
 bindsym $mod+e			exec --no-startup-id thunderbird
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids

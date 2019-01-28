@@ -7,19 +7,19 @@
 let mapleader =" " " space works well with both US an CSA keyboard layouts
 
 call plug#begin('~/.vim/plugged')
-Plug 'junegunn/goyo.vim'
+"Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'jreybert/vimagit'
-Plug 'LukeSmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
+"Plug 'jreybert/vimagit'
+"Plug 'LukeSmithxyz/vimling'
+"Plug 'vimwiki/vimwiki'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-commentary'
-Plug 'mattn/emmet-vim'
-Plug 'easymotion/vim-easymotion'
+"Plug 'mattn/emmet-vim'
+"Plug 'easymotion/vim-easymotion'
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'Shougo/deoplete.nvim' " { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim' " { 'do': ':UpdateRemotePlugins' }
 " Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'tmhedberg/SimpylFold'
@@ -268,12 +268,15 @@ call plug#end()
 
 " deoplete settings
 	let g:deoplete#enable_at_startup = 1
-	" deoplete tab-complete
-	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+	"let g:deoplete#tab-complete
+	"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " omnisharp-vim settings
+	let g:OmniSharp_timeout = 5
 	let g:Omnisharp_start_server = 1
-	let g:OmniSharp_server_path = '/Users/mbarakatt/.omnisharp/omnisharp-roslyn/OmniSharp.exe'
+	" let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/OmniSharp.exe'
+	let g:OmniSharp_server_path = '~/.omnisharp/omnisharp-roslyn/OmniSharp.exe'
+	let g:OmniSharp_port = 2000
 	let g:OmniSharp_server_use_mono = 1
 	let g:OmniSharp_timeout=5
 	set completeopt=longest,menuone,preview
