@@ -64,7 +64,7 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 	alias mount-imac='umount -f ~/mount/imac ; sshfs imac:  ~/mount/imac'
 
 # Notes
-	alias notes="vim -p ~/notes/todos/*.md ~/notes/personnel/2019/2019.md"
+	alias notes="vim -p ~/notes/todos/*.md ~/notes/Personnel/2019/2019.md"
 	alias food="vim ~/notes/todos/food.md"
 	alias buy="vim ~/notes/todos/buy.md"
 	alias todos="vim ~/notes/todos/todos.md"

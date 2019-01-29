@@ -17,13 +17,13 @@ Plug 'tpope/vim-commentary'
 "Plug 'mattn/emmet-vim'
 "Plug 'easymotion/vim-easymotion'
 Plug 'OmniSharp/omnisharp-vim'
-"Plug 'Shougo/deoplete.nvim' " { 'do': ':UpdateRemotePlugins' }
+Plug 'w0rp/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'roxma/vim-hug-neovim-rpc'
 " Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'tmhedberg/SimpylFold'
-" Plug 'ervandew/supertab'
 " Plug 'Valloric/YouCompleteMe'
 " Plug 'scrooloose/syntastic'
 " Plug 'davidhalter/jedi-vim'
@@ -266,44 +266,31 @@ call plug#end()
 	au BufEnter /tmp/crontab.* setl backupcopy=yes
 
 
-" deoplete settings
+" Deoplete settings
+	" Use deoplete.
 	let g:deoplete#enable_at_startup = 1
-	"let g:deoplete#tab-complete
-	"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+	call deoplete#custom#option('min_pattern_length', 0)
+
+" Tab completion
+	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>
 
 " omnisharp-vim settings
 	let g:OmniSharp_timeout = 5
 	let g:Omnisharp_start_server = 1
-	" let g:OmniSharp_server_path = '/opt/omnisharp-roslyn/OmniSharp.exe'
-	let g:OmniSharp_server_path = '~/.omnisharp/omnisharp-roslyn/OmniSharp.exe'
-	let g:OmniSharp_port = 2000
+	"let g:OmniSharp_server_path = '/home/mbarakatt/.omnisharp/omnisharp-roslyn/omnisharp/OmniSharp.exe'
 	let g:OmniSharp_server_use_mono = 1
-	let g:OmniSharp_timeout=5
 	set completeopt=longest,menuone,preview
 	set previewheight=5
 
+" ale settings
+	" If ALE is installed, it will automatically be used to asynchronously check your code for errors.  No further configuration is necessary. However, be aware that ALE supports multiple C# linters, and will run all linters that are available on your system. To limit ALE to only use OmniSharp (recommended), add this to your .vimrc:
+	"
+	let g:ale_linters = {
+	\ 'cs': ['OmniSharp']
+	\}
 
-" you-complete-me settings
-	" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
-	" let g:ycm_server_keep_logfiles = 1
-
-	" Load ycm_extra_conf.py in current directory without confirmation
-	" let g:ycm_extra_conf_globlist = ['./*']
-
-	" can use both ycm and jedi-vim at the same time.
-	" let g:jedi#completions_enabled = 0
-	" let g:jedi#auto_initialization = 0
-
-	" let g:ycm_auto_trigger = 1
-	" let g:ycm_min_num_of_chars_for_completion =
-
-	" semantic triggers for ref and cite in tex mode
-	" let g:ycm_semantic_triggers = {
-	" \  'tex'  : ['\ref{','\cite{'],
-	" \ }
-
-" jedi-vim settings
-	" let g:jedi#use_splits_not_buffers = "left"
 
 " vim-latex settings
 	" for skim vimlatex syncronyzation
@@ -445,3 +432,26 @@ let g:tex_fold_enabled = 1
 	"
 " Airline theme
 	let g:airline_theme='dracula'
+
+" ################# Not useful ############
+" you-complete-me settings
+	" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+	" let g:ycm_server_keep_logfiles = 1
+
+	" Load ycm_extra_conf.py in current directory without confirmation
+	" let g:ycm_extra_conf_globlist = ['./*']
+
+	" can use both ycm and jedi-vim at the same time.
+	" let g:jedi#completions_enabled = 0
+	" let g:jedi#auto_initialization = 0
+
+	" let g:ycm_auto_trigger = 1
+	" let g:ycm_min_num_of_chars_for_completion =
+
+	" semantic triggers for ref and cite in tex mode
+	" let g:ycm_semantic_triggers = {
+	" \  'tex'  : ['\ref{','\cite{'],
+	" \ }
+
+" jedi-vim settings
+	" let g:jedi#use_splits_not_buffers = "left"
