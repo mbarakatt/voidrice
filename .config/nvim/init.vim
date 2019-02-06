@@ -103,6 +103,7 @@ call plug#end()
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 	vnoremap <C-c> "+y
 	map <C-p> "+P
+	inoremap <C-v> <Esc>"+pa
 
 " Enable Goyo by default for mutt writting
 	" Goyo's width will be the line limit in mutt.
@@ -274,7 +275,6 @@ call plug#end()
 " Tab completion
 	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>
 
 " omnisharp-vim settings
 	let g:OmniSharp_timeout = 5

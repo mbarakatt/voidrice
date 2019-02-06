@@ -73,6 +73,7 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 	alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"
 	alias arch-guide="vim ~/Dropbox/notes/Personnel/arch-guide/arch-guide.md"
 	alias drive-pull="drive pull --ignore-name-clashes -depth 4"
+	alias youtube-dl-audio="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --add-metadata"
 
 # Addition ranger setting
 # Compatible with ranger 1.4.2 through 1.7.*
@@ -93,3 +94,6 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 		rm -f -- "$tempfile"
 	}
 	alias ranger=ranger-cd
+
+# pyenv
+	eval "$(pyenv init -)"
