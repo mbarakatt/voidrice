@@ -3,7 +3,7 @@
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
 
-xset r rate 230 30
+xset s 1800 1800 # 30 minutes before the screen goes blanks
 if [ "$HOSTNAME" = "archlinux-imac" ] ; then
 	exec .scripts/tools/start-barrierc-imac &
 # else

@@ -62,6 +62,7 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 	alias vimall='vim -p $(ls *.{cpp,h,py,cs})'
 	alias mountmusic='umount -f ~/music-collection/ ; sshfs 192.168.2.16:Dropbox/Music\ Collection/  ~/music-collection/'
 	alias mount-imac='umount -f ~/mount/imac ; sshfs imac:  ~/mount/imac'
+	alias mount-linode='umount -f ~/mount/linode ; sshfs linode:  ~/mount/linode'
 
 # Notes
 	alias notes="vim -p ~/notes/todos/*.md ~/notes/Personnel/2019/2019.md"
