@@ -62,7 +62,7 @@ exec --no-startup-id mpd
 # Podboat automatic queue and download
 exec_always --no-startup-id podentr
 # adjust keyboard repeat rates
-exec_always --no-startup-id xset r 230 30
+exec_always --no-startup-id xset r rate 230 30
 
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
