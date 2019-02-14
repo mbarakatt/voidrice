@@ -8,3 +8,4 @@ image/jpeg=sxiv.desktop;
 image/gif=sxiv.desktop;
 x-scheme-handler/mailspring=mailspring.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+x-scheme-handler/tg=telegramdesktop.desktop
