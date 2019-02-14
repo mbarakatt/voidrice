@@ -144,7 +144,7 @@ bindsym $mod+e			exec --no-startup-id thunderbird
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
 bindsym $mod+r 			exec $term -e ranger
-bindsym $mod+Shift+r		exec --no-startup-id winresize
+#bindsym $mod+Shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle
 #bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
@@ -213,7 +213,8 @@ bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
 
-bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
+bindsym $mod+n			exec --no-startup-id nheko
+# bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
 
 bindsym $mod+m 			exec --no-startup-id $term -e ncmpcpp
@@ -337,7 +338,7 @@ bindsym $mod+Shift+bracketright exec --no-startup-id lmc forward 120
 # For screenshots and recording
 bindsym Print 			exec --no-startup-id maim pic-full-"$(date '+%y%m%d-%H%M-%S').png"
 bindsym Shift+Print 		exec --no-startup-id maimpick
-bindsym $mod+Print		exec --no-startup-id dmenurecord
+bindsym $mod+Shift+r		exec --no-startup-id dmenurecord
 bindsym $mod+Scroll_Lock	exec --no-startup-id "killall screenkey || screenkey"
 bindsym $mod+Delete		exec $stoprec
 bindsym XF86Launch1		exec --no-startup-id xset dpms force off
