@@ -1,0 +1,4 @@
+#!/bin/bash
+
+read -p "Enter name@address: " addr
+rsync -av -e ssh ${addr}:.ssh/ ~/.ssh/
