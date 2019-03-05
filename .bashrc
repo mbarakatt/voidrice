@@ -63,16 +63,17 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 	alias mountmusic='umount -f ~/music-collection/ ; sshfs 192.168.2.16:Dropbox/Music\ Collection/  ~/music-collection/'
 	alias mount-imac='umount -f ~/mount/imac ; sshfs imac:  ~/mount/imac'
 	alias mount-linode='umount -f ~/mount/linode ; sshfs linode:  ~/mount/linode'
+	alias mount-rpi='umount -f ~/mount/rpi ; sshfs rpi:  ~/mount/rpi'
 
 # Notes
-	alias notes="vim -p ~/notes/todos/*.md ~/notes/Personnel/2019/2019.md"
+	alias notes="vim -p ~/notes/todos/{daily,food,reminders,buy}.md ~/notes/personnel/2019/2019.md ~/notes/personnel/english/english.md ~/notes/personnel/francais/francais.md ~/notes/personnel/arch-guide/arch-guide.md"
 	alias food="vim ~/notes/todos/food.md"
 	alias buy="vim ~/notes/todos/buy.md"
 	alias todos="vim ~/notes/todos/todos.md"
 	alias daily="vim ~/notes/todos/daily.md"
 	alias remind="vim ~/notes/todos/reminders.md"
 	alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"
-	alias arch-guide="vim ~/Dropbox/notes/Personnel/arch-guide/arch-guide.md"
+	alias arch-guide="vim ~/Dropbox/notes/personnel/arch-guide/arch-guide.md"
 	alias drive-pull="drive pull --ignore-name-clashes -depth 4"
 	alias youtube-dl-audio="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --add-metadata"
 
@@ -98,3 +99,6 @@ vf() { fzf | xargs -r -I % $EDITOR % ;}
 
 # pyenv
 	eval "$(pyenv init -)"
+
+#export OpenCV_INCLUDE_DIRS=/usr/include/opencv4/
+# export OpenCV_LIBS=/usr/lib/opencv4/
