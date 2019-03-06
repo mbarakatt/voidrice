@@ -46,4 +46,62 @@ music
 temp/
 unity-projects/
 virtualbox-vms/
-
+.AndroidStudio3.2/
+.Xresources.bak
+.android/
+.config/Android Open Source Project/
+.config/Code Industry/
+.config/Foxit Software/
+.config/GitExtensions/
+.config/Mailspring/
+.config/Mendeley Ltd./
+.config/QtProject.conf
+.config/Trolltech.conf
+.config/VirtualBox/
+.config/autostart/
+.config/calibre/
+.config/chromium/
+.config/enchant/
+.config/gconf/
+.config/gtk-2.0/
+.config/libreoffice/
+.config/pulse/
+.config/unity3d/
+.config/vivaldi/
+.config/vlc/
+.config/xfburn/
+.config/youtube-viewer/categories-US-en_US.json
+.config/youtube-viewer/gtk-youtube-viewer.conf
+.config/youtube-viewer/history.txt
+.config/youtube-viewer/reg.dat
+.config/youtube-viewer/youtube_users.txt
+.dosbox/
+.dotnet/
+.dropbox/
+.dropbox-dist/
+.emulator_console_auth_token
+.gradle/
+.ipython/
+.java/
+.keras/
+.kivy/
+.lesshst
+.links/
+.mono/
+.msmtprc
+.nfcopy13/
+.nuget/
+.offlineimap/
+.omnisharp/
+.public/
+.pyenv/
+.recordingicon
+.sc-iminfo
+".scripts/tools/\\"
+.scripts/tools/share-screen
+.surf/
+.templateengine/
+.thunderbird/
+.w3m/
+Bulk Downloader for Reddit/
+Calibre Library/
