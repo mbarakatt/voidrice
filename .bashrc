@@ -8,49 +8,8 @@ export PS1="\[\e[31m\]λ\[\e[m\]:\W \[\e[31m\]\\$\[\e[m\] " # local setup
 
 [ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
 
-# System Maintainence
-alias mw="~/.config/mutt/mutt-wizard.sh"
-alias sdn="sudo shutdown now"
-alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
-alias gua="git remote | xargs -L1 git push --all"
-
-# Exporting PATH
-export PATH="~/Dropbox/bin:$PATH"
-
-# Some aliases
-alias vim="/usr/bin/nvim"
-alias e="$EDITOR"
-alias p="sudo pacman"
-alias SS="sudo systemctl"
-alias v="vim"
-alias f="vifm"
-alias r="ranger"
-alias sr="sudo ranger"
-alias ka="killall"
-alias g="git"
-alias trem="transmission-remote"
-alias mkd="mkdir -pv"
-alias bw="wal -i ~/.config/wall.png" # Rerun pywal
-alias ref="shortcuts >/dev/null ; source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
-alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"
-alias x="sxiv -ft *"
-alias lp="pacman -Qett --color=always | less"
-alias yay-update-system="yay -Syu --devel --timeupdate"
-alias doc2pdf="libreoffice --headless --convert-to pdf"
-
-# Adding color
-alias ls='ls -hN --color=auto --group-directories-first'
-alias grep="grep --color=auto"
-alias diff="diff --color=auto"
-alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
-
-# Internet
-alias yt="youtube-dl --add-metadata -i" # Download video link
-alias yta="yt -x -f bestaudio/best" # Download only audio
-alias yts="youtube-viewer --results=20 -SV" # for youtube subscriptions
-alias YT="youtube-viewer"
-
-
+# Loading aliases in alias file
+[ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
