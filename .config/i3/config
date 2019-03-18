@@ -40,8 +40,10 @@ for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
 for_window [instance="dropdown_tmuxdd"] resize set 625 450
 for_window [instance="dropdown_dropdowncalc"] resize set 800 300
+for_window [instance="dropdown_dropdownnotes"] resize set 800 300
 for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
+for_window [instance="dropdown_dropdownnotes"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 # #---Starting External Scripts---# #
@@ -59,10 +61,8 @@ exec --no-startup-id remaps
 exec --no-startup-id unclutter
 # Run the script to update the mpd i3block on change.
 exec_always --no-startup-id mpdupdate
-# Podboat automatic queue and download
-exec_always --no-startup-id podentr
 # adjust keyboard repeat rates
-exec_always --no-startup-id xset r rate 250 30
+exec_always --no-startup-id xset r rate 300 30
 
 # Set Xresources colors:
 set_from_resource $darkblack	color0  #000000
@@ -204,7 +204,7 @@ bindsym $mod+Shift+z		gaps outer current minus 5
 bindsym $mod+x			exec --no-startup-id lockscreen
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
-#bindsym $mod+c
+bindsym $mod+c			exec --no-startup-id ddspawn dropdownnotes -f mono:pixelsize=24
 bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 #bindsym $mod+v

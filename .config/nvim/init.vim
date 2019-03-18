@@ -95,7 +95,7 @@ call plug#end()
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " Readmes autowrap text:
-	autocmd BufRead,BufNewFile *.md set tw=79
+	"autocmd BufRead,BufNewFile *.md set tw=79
 
 " Use urlscan to choose and open a url:
 	:noremap <leader>u :w<Home> !urlscan -r 'linkhandler {}'<CR>
@@ -258,7 +258,6 @@ call plug#end()
 	" Turn backup off, since most stuff is in SVN, git et.c anyway...
 	set nobackup
 	set nowb
-	set noswapfile
 
 	" Use * and # to search for the current selection
 	vnoremap * y/<C-R>"<CR>
@@ -423,6 +422,8 @@ let g:tex_fold_enabled = 1
 
 " Quit and save all
 	nnoremap <leader>s <Esc>:wqa<Enter>
+" Quickly insert date (in ISO format)
+	nnoremap Pd <Esc>:put =strftime('%Y-%m-%d')<Enter>
 
 " To use fzf in Vim, add the following line to your .vimrc:
   set rtp+=/usr/local/opt/fzf
