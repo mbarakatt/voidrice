@@ -152,7 +152,7 @@ bindsym $mod+t			split toggle
 bindsym $mod+v			split vertical ; focus right ; move left 30
 bindsym $mod+Shift+V		split horizontal ; focus down ; move up 30
 
-bindsym $mod+y			exec $term -e calcurse
+bindsym $mod+y			exec --no-startup-id youtube-viewer-clipboard
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
 bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd

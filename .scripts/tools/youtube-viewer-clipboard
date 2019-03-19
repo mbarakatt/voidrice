@@ -1,0 +1,1 @@
+youtube-viewer $(xclip -selection clipboard -o)
