@@ -1,0 +1,8 @@
+current_resolution=$(xrandr | grep \* | awk '{print $1}' )
+
+if [ ${current_resolution} = "3840x2160" ]; then
+	xrandr --output DP2 --mode 1920x1080
+else
+    xrandr --output DP2 auto
+fi
+

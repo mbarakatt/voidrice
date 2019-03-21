@@ -91,10 +91,10 @@ askrecording() { \
 	}
 
 asktoend() { \
-	response=$(printf "No\\nYes" | dmenu -i -p "Recording still active. End recording?") &&
-	[ "$response" = "Yes" ] &&  killrecording
+	# response=$(printf "No\\nYes" | dmenu -i -p "Recording still active. End recording?") &&
+	# [ "$response" = "Yes" ] &&  killrecording
+	killrecording
 	}
-
 
 case "$1" in
 	screencast) screencast;;
