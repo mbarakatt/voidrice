@@ -213,7 +213,7 @@ bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id bottomleft
 
-bindsym $mod+n			exec --no-startup-id nheko
+bindsym $mod+n			exec --no-startup-id fractal
 # bindsym $mod+n			exec $term -e newsboat && pkill -RTMIN+6 i3blocks
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id bottomright
 

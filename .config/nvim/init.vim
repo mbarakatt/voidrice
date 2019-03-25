@@ -30,15 +30,16 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'davidhalter/jedi-vim'
 Plug 'lervag/vimtex'
 Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
-Plug 'dpelle/vim-Grammalecte'
+"Plug 'dpelle/vim-Grammalecte'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-surround'
 call plug#end()
 
+set encoding=utf-8
 " vim-Grammalecte
-	let g:grammalecte_cli_py='/usr/bin/cli.py' " had to create a simlink that pointed to grammalecte_cli_py
-	map <leader>o <Esc>:GrammalecteCheck<CR><C-j><Down><Down>zt<C-k><C-w>=
-	map <leader>O <Esc>:GrammalecteClear<CR>
+	" let g:grammalecte_cli_py='/usr/bin/cli.py' " had to create a simlink that pointed to grammalecte_cli_py
+	" map <leader>o <Esc>:GrammalecteCheck<CR><C-j><Down><Down>zt<C-k><C-w>=
+	" map <leader>O <Esc>:GrammalecteClear<CR>
 
 	"nnoremap Pt <Esc>:wa<Enter>:redir => scriptn \| sil exe 'args' \| redir end \| echo(system('CountPoints',scriptn))<Enter>
 

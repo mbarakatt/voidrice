@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+
+import subprocess
+
+stdout, stderr = subprocess.Popen([ 'pacmd', 'list-sinks'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()
+
+print(stdout)
+# pactl move-sink-input 87 0
+
+# pacmd list-sink-inputs | less

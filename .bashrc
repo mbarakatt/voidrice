@@ -14,3 +14,12 @@ export PS1="\[\e[31m\]λ\[\e[m\]:\W \[\e[31m\]\\$\[\e[m\] " # local setup
 # pyenv
 eval "$(pyenv init -)"
 
+## To change dpi on the fly, must rerun i3 after
+# xrdb -merge <(echo "Xft.dpi: 240 ")
+
+# check how manually set the screen dpi setting
+# $ xdpyinfo | grep -B 2 resolution
+# might affect stuff
+# export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
