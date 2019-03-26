@@ -37,7 +37,7 @@ class my_edit(Command):
             # reference to the currently selected file.
             target_filename = self.fm.thisfile.path
 
-        # This is a generic function to print text in ranger.  
+        # This is a generic function to print text in ranger.
         self.fm.notify("Let's edit the file " + target_filename + "!")
 
         # Using bad=True in fm.notify allows you to print error messages:
@@ -56,6 +56,29 @@ class my_edit(Command):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
         return self._tab_directory_content()
+
+class mpd_client(Command):
+    """:mpd_client <filename>
+    It is assumed that the music collection is in $home/music
+    description of mpd_client
+
+    """
+    def execute(self):
+        import subprocess
+        if self.arg(1):
+            # self.rest(1) contains self.arg(1) and everything that follows
+            target_filename = self.rest(1)
+        else:
+            target_filename = self.fm.thisfile.path
+
+        # This is a generic function to print text in ranger.
+        # self.fm.notify("Playing.. " + target_filename + "!")
+        go_path = os.path.relpath(target_filename, os.environ['HOME']+ "/music")
+        self.fm.notify("Playing.. " + go_path + "!")
+        subprocess.run(['mpc', 'stop', '-q'])
+        subprocess.run(['mpc', 'clear'])
+        subprocess.run(['mpc', 'add', go_path])
+        subprocess.run(['mpc', 'play', '-q'])
 
 
 # https://github.com/ranger/ranger/wiki/Integrating-File-Search-with-fzf
