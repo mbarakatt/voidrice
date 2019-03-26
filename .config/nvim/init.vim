@@ -271,7 +271,7 @@ set encoding=utf-8
 " Deoplete settings
 	" Use deoplete.
 	let g:deoplete#enable_at_startup = 1
-	call deoplete#custom#option('min_pattern_length', 0)
+	call deoplete#custom#option('min_pattern_length', 1)
 
 " Tab completion
 	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
