@@ -76,7 +76,7 @@ class mpd_client(Command):
         go_path = os.path.relpath(target_filename, os.environ['HOME']+ "/music")
         self.fm.notify("Playing.. " + go_path + "!")
         subprocess.run(['mpc', 'stop', '-q'])
-        subprocess.run(['mpc', 'clear'])
+        subprocess.run(['mpc', 'clear', '-q'])
         subprocess.run(['mpc', 'add', go_path])
         subprocess.run(['mpc', 'play', '-q'])
 
