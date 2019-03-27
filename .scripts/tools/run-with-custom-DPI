@@ -1,0 +1,11 @@
+#!/bin/bash
+# currentDPI=$(xrdb -query | grep dpi | awk '{print $2}')
+currentDPI=$(cat ~/.Xresources | grep dpi | awk '{print $2}')
+echo $currentDPI
+
+xrdb -merge <(echo 'Xft.dpi:'"$1")
+exec $2 &
+sleep 5
+xrdb -merge <(echo 'Xft.dpi:'"$currentDPI")
+
+
