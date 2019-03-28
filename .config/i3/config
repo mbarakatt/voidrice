@@ -30,6 +30,8 @@ set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
 set $suspend sudo -A systemctl suspend
 set $suspendreally sudo -A systemctl suspend -i
+set $largeDPI 192
+set $smallDPI 48
 
 # #---Dropdown Windows---# #
 
@@ -140,7 +142,7 @@ bindsym $mod+w			exec $term -e nmtui
 bindsym $mod+Shift+w		exec $BROWSER
 
 #bindsym $mod+e			exec $term -e neomutt && pkill -RTMIN+12 i3blocks
-bindsym $mod+e			exec --no-startup-id thunderbird
+bindsym $mod+e			exec --no-startup-id run-with-custom-DPI $largeDPI thunderbird
 bindsym $mod+Shift+e		exec --no-startup-id tutorialvids
 
 bindsym $mod+r 			exec $term -e ranger
@@ -384,7 +386,7 @@ bindsym XF86AudioRewind		exec --no-startup-id lmc back 10
 bindsym XF86AudioForward	exec --no-startup-id lmc forward 10
 ##bindsym XF86Phone		exec
 ##bindsym XF86Tools		exec
-bindsym XF86HomePage		exec $BROWSER https://lukesmith.xyz
+#bindsym XF86HomePage		exec
 bindsym XF86Reload		restart
 ##bindsym XF86ScrollUp		exec
 ##bindsym XF86ScrollDown		exec

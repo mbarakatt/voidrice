@@ -12,7 +12,7 @@ export PS1="\[\e[31m\]λ\[\e[m\]:\W \[\e[31m\]\\$\[\e[m\] " # local setup
 [ -f "$HOME/.aliasrc" ] && source "$HOME/.aliasrc"
 
 # pyenv
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 
 ## To change dpi on the fly, must rerun i3 after
 # xrdb -merge <(echo "Xft.dpi: 240 ")

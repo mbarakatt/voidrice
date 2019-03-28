@@ -1,0 +1,13 @@
+folder="$HOME/.public"
+filename="file.png"
+mkdir -p $folder
+
+kill $(ps aux | grep python | grep http.server | awk '{print $2}' )
+
+# ps aux | grep
+maim -i "$(xdotool getactivewindow)" $folder/$filename
+
+cd $folder
+python -m http.server
+cd -
+

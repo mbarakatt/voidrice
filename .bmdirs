@@ -1,6 +1,7 @@
 # You can add comments to these files with #
 h	~/
 D	~/Downloads
+d 	~/Dropbox
 m	~/music
 cf	~/.config
 sc	~/.scripts
