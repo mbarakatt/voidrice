@@ -7,7 +7,7 @@ HISTSIZE= HISTFILESIZE= # Infinite history.
 if [ $(hostname) = "archlinux-mbp" ]; then
 	export PS1="\[\e[31m\]λ\[\e[m\]:\W \[\e[31m\]\\$\[\e[m\] " # local setup
 else
-	export PS1="\u\[\e[31m\]λ\[\e[m\]:\W \[\e[31m\]\\$\[\e[m\] " # local setup
+	export PS1="\h\[\e[31m\]λ\[\e[m\]:\W \[\e[31m\]\\$\[\e[m\] " # local setup
 fi
 
 [ -f "$HOME/.shortcuts" ] && source "$HOME/.shortcuts" # Load shortcut aliases
