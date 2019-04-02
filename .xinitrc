@@ -12,4 +12,7 @@ fi
 
 exec dropbox &
 # exec redshift &
-exec i3
+tty_number=$(who | grep -v pts | awk '{print $2}')
+if [ ${tty_number} = "tty1" ]; then
+    exec i3
+fi
