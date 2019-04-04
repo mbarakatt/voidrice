@@ -16,3 +16,10 @@ tty_number=$(who | grep -v pts | awk '{print $2}')
 if [ ${tty_number} = "tty1" ]; then
     exec i3
 fi
+if [ ${tty_number} = "tty2" ]; then
+    exec i3
+fi
+if [ ${tty_number} = "tty3" ]; then
+    exec bspwm
+fi
+

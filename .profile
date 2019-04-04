@@ -27,8 +27,12 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 
+XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_HOME
 # Start graphical server if i3 not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty2" ] && ! pgrep -x i3 >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty3" ] && ! pgrep -x bspwm >/dev/null && exec startx
 
 # Switch escape and caps if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
@@ -48,6 +52,4 @@ fd() {
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
-# Create new projects
-alias createconsole="dotnet new console; dotnet new sln; dotnet sln add *.csproj"
 
