@@ -1,0 +1,208 @@
+#
+# wm independent hotkeys
+#
+
+super + grave
+	dmenuunicode
+
+super + {_, shift +}Return
+	{$TERMINAL, samedir}
+
+super + {_, shift + }a
+	{_calculator, $TERMINAL -e pulsemixer}
+
+super + {_, shift + }b
+	{$$toggle_bar, $$empty   }
+
+super + {_, shift + }c
+	{showclip, camtoggle}
+
+super + {_, shift + }d
+	{dmenu_run, _unk}
+
+super + {_, shift + }e
+	{run-with-custom-DPI $largeDPI thunderbird, bspc node --flip}
+
+super + f
+	bspc desktop -l next
+
+super + {_, shift + }g
+	{bspc desktop --focus prev, }
+
+super + i
+	$TERMINAL -e htop
+
+super + {_, shift + }m
+	{$TERMINAL -e ranger ~/music, }
+
+super + {_, shift + }n
+	{nheko, }
+
+super + {_, shift + }o
+	{, }
+
+super + {_, shift + }p
+	{lmc toggle, lmc pause }
+
+super + shift + q
+	$$something
+
+super + {_, shift + }r
+	{$TERMINAL -e ranger, }
+
+super + {_, shift + }s
+	{, }
+
+super + {_, shift + }t
+	{, }
+
+super + {_, shift + }u
+	{, }
+
+super + {_, shift + }v
+	{, }
+
+super + {_, shift + }w
+	{$TERMINAL -e nmtui, $BROWSER}
+
+super + {_, shift + }x
+	{, }
+
+super + {_, shift + }y
+	{, youtube-viewer-clipboard }
+
+super + {_, shift + }z
+	{, }
+
+super + space
+	xkb-switch -n # notify bar...
+
+super + Escape
+	pkill -USR1 -x sxhkd # make sxhkd reload its configuration files:
+
+super + semicolon
+	bspc desktop --focus next
+
+super + apostrophe
+	$$something
+
+super + slash
+	$$something
+
+super + backslash
+	$$something
+
+super + F2
+	wm -r	# restarts bspwm
+
+super + F3
+	displayselect
+
+super + F4
+	prompt "suspend computer?" sudo -A systemctl suspend
+
+{XF86MonBrightnessDown, XF86MonBrightnessUp}
+	{light -U 1, light -A 1}
+
+{XF86KbdBrightnessDown, XF86KbdBrightnessUp}
+	{kb-light - 8, kb-light + 8}
+
+#
+# bspwm hotkeys
+#
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+super + f
+
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest node
+# super + g
+# 	bspc node -s biggest
+
+#
+# state/flags
+#
+
+# set the window state
+super + {t,shift + t,s, shift + f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+#
+# focus/swap
+#
+super + {_, shift + ,alt +}{h,j,k,l}
+	bspc node -{f,s,n} {west,south,north,east}
+
+# focus the node for the given path jump
+super + alt + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# focus the next/previous node in the current desktop
+super + alt + {_,shift + }c
+	bspc node -f {next,prev}.local
+
+# focus the next/previous desktop in the current monitor
+# super + bracket{left,right}
+# 	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+# super + alt + {o,i}
+# 	bspc wm -h off; \
+# 	bspc node {older,newer} -f; \
+# 	bspc wm -h on
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+super + shift + {y,u,i,o}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {y,u,i,o}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# preselect
+#
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
