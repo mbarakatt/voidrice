@@ -102,7 +102,7 @@ super + F4
 	prompt "suspend computer?" sudo -A systemctl suspend
 
 {XF86MonBrightnessDown, XF86MonBrightnessUp}
-	{light -U 1, light -A 1}
+	{light -U 2, light -A 2}
 
 {XF86KbdBrightnessDown, XF86KbdBrightnessUp}
 	{kb-light - 8, kb-light + 8}

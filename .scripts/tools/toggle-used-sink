@@ -2,9 +2,37 @@
 
 import subprocess
 
-stdout, stderr = subprocess.Popen([ 'pacmd', 'list-sinks'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()
+def get_default():
+    stdout, stderr = subprocess.Popen([ 'pacmd', 'list-sinks'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()
+    stdout = stdout.decode("utf-8").splitlines()
+    for line in stdout:
+        if '*' in line:
+            return int(line.split()[-1])
 
-print(stdout)
-# pactl move-sink-input 87 0
+def set_default(d):
+    stdout, stderr = subprocess.Popen(['pacmd', 'set-default-sink', str(d)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()
 
-# pacmd list-sink-inputs | less
+def get_sink_inputs():
+    sink_list = []
+    stdout, stderr = subprocess.Popen(['pacmd', 'list-sink-inputs'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()
+    stdout = stdout.decode("utf-8").splitlines()
+    for line in stdout:
+        if 'index: ' in line:
+            sink_list.append(int(line.split()[-1]))
+    return sink_list
+
+def set_sink_inputs(sink_input_list, d):
+    # pactl move-sink-input 87 0
+    for s in sink_input_list:
+        stdout, stderr = subprocess.Popen(['pacmd', 'move-sink-input', str(s), str(d)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()
+
+default_now = get_default()
+
+if default_now == 1:
+    default_new = 2
+else:
+    default_new = 1
+
+set_default(default_new)
+
+set_sink_inputs(get_sink_inputs(), default_new)
