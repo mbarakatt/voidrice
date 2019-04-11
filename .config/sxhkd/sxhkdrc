@@ -50,11 +50,11 @@ super + shift + q
 super + {_, shift + }r
 	{$TERMINAL -e ranger, }
 
-super + {_, shift + }s
-	{, }
+super + shift + s
+	$$something
 
 super + {_, shift + }t
-	{, }
+	{$$something,toggle-used-sink}
 
 super + {_, shift + }u
 	{, }
@@ -93,7 +93,7 @@ super + backslash
 	$$something
 
 super + F2
-	wm -r	# restarts bspwm
+	bspc wm -r	# restarts bspwm
 
 super + F3
 	displayselect
@@ -131,7 +131,7 @@ super + y
 #
 
 # set the window state
-super + {t,shift + t,s, shift + f}
+super + alt + {t,shift + t,s, shift + f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
