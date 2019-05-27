@@ -6,33 +6,32 @@
 
 let mapleader =" " " space works well with both US an CSA keyboard layouts
 
-
 call plug#begin('~/.config/nvim/plugged')
-"Plug 'junegunn/goyo.vim'
-Plug 'PotatoesMaster/i3-vim-syntax'
-"Plug 'jreybert/vimagit'
-"Plug 'LukeSmithxyz/vimling'
-"Plug 'vimwiki/vimwiki'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-commentary'
-"Plug 'mattn/emmet-vim'
-"Plug 'easymotion/vim-easymotion'
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'roxma/vim-hug-neovim-rpc'
-" Plug 'fatih/vim-go'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'tmhedberg/SimpylFold'
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'scrooloose/syntastic'
-" Plug 'davidhalter/jedi-vim'
-Plug 'lervag/vimtex'
-Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
-"Plug 'dpelle/vim-Grammalecte'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
+	Plug 'godlygeek/tabular'
+	Plug 'plasticboy/vim-markdown'
+	Plug 'PotatoesMaster/i3-vim-syntax'
+	Plug 'tpope/vim-commentary'
+	Plug 'OmniSharp/omnisharp-vim'
+	Plug 'w0rp/ale'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'lervag/vimtex'
+	Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
+	"Plug 'jreybert/vimagit'
+	"Plug 'LukeSmithxyz/vimling'
+	"Plug 'vimwiki/vimwiki'
+	"Plug 'mattn/emmet-vim'
+	"Plug 'easymotion/vim-easymotion'
+	"Plug 'roxma/vim-hug-neovim-rpc'
+	"Plug 'fatih/vim-go'
+	"Plug 'tmhedberg/SimpylFold'
+	"Plug 'Valloric/YouCompleteMe'
+	"Plug 'scrooloose/syntastic'
+	"Plug 'davidhalter/jedi-vim'
+	"Plug 'dpelle/vim-Grammalecte'
+	"Plug 'tpope/vim-fugitive'
+	"Plug 'tpope/vim-surround'
 call plug#end()
 
 set encoding=utf-8

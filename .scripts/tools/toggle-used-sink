@@ -33,10 +33,15 @@ def set_sink_inputs(sink_input_list, d):
         stdout, stderr = subprocess.Popen(['pacmd', 'move-sink-input', str(s), str(d)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT).communicate()
 
 default_index, list_sinks  = get_default()
+print(default_index, list_sinks)
 
 
 default_new = list_sinks[(default_index + 1) % len(list_sinks) ]
 
 set_default(default_new)
+# if it cannot be changed
+after_default, after_list = get_default()
+if after_list[after_default] == list_sinks[default_index]:
+    default_new = list_sinks[default_index]
 
 set_sink_inputs(get_sink_inputs(), default_new)
