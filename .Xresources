@@ -22,4 +22,4 @@ st.alpha: 225
 !! *.font: Monospace-14;
 
 !! Settings for high DPI
-Xft.dpi: 120
+!!Xft.dpi: 120

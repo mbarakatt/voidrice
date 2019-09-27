@@ -2,8 +2,8 @@ key=$(xkb-switch)
 
 if [ $key = "us" ]
 then
-printf 🇺🇸
+printf " 🇺🇸\n"
 else
-printf 🇨🇦
+printf "🇨🇦\n"
 fi
 
