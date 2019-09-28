@@ -61,7 +61,7 @@ alias drive-pull="drive pull --ignore-name-clashes -depth 4"
 alias youtube-dl-audio="youtube-dl -f bestaudio --extract-audio --embed-thumbnail --add-metadata"
 
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
-se() { du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
+se() { du -a ~/.scripts/* ~/.config/* ~/Dropbox/notes/* ~/Dropbox/github-clone/* | awk '{print $2}' | fzf | xargs  -r $EDITOR ;}
 sv() { vcopy "$(du -a ~/.scripts/* ~/.config/* | awk '{print $2}' | fzf)" ;}
 vf() { fzf | xargs -r -I % $EDITOR % ;}
 

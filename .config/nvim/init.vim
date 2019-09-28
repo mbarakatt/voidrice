@@ -1,8 +1,3 @@
-"        _
-" __   _(_)_ __ ___  _ __ ___
-" \ \ / / | '_ ` _ \| '__/ __|
-"  \ V /| | | | | | | | | (__
-"   \_/ |_|_| |_| |_|_|  \___|
 
 let mapleader =" " " space works well with both US an CSA keyboard layouts
 
@@ -12,12 +7,13 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'PotatoesMaster/i3-vim-syntax'
 	Plug 'tpope/vim-commentary'
 	Plug 'OmniSharp/omnisharp-vim'
-	Plug 'w0rp/ale'
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'prabirshrestha/asyncomplete.vim'
+	" Plug 'w0rp/ale'
+	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'lervag/vimtex'
-	Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
+"	Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
 	"Plug 'jreybert/vimagit'
 	"Plug 'LukeSmithxyz/vimling'
 	"Plug 'vimwiki/vimwiki'
@@ -34,28 +30,34 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'tpope/vim-surround'
 call plug#end()
 
-set encoding=utf-8
+
+" Some basics:
+	set nocompatible
+	"filetype plugin on
+	autocmd BufNewFile,BufRead *.md filetype plugin indent off
+	syntax on
+	set encoding=utf-8
+	set nonumber
+	set wildmode=longest,list,full
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables automatic commenting on newline:
+
 " vim-Grammalecte
 	" let g:grammalecte_cli_py='/usr/bin/cli.py' " had to create a simlink that pointed to grammalecte_cli_py
 	" map <leader>o <Esc>:GrammalecteCheck<CR><C-j><Down><Down>zt<C-k><C-w>=
 	" map <leader>O <Esc>:GrammalecteClear<CR>
 
 	"nnoremap Pt <Esc>:wa<Enter>:redir => scriptn \| sil exe 'args' \| redir end \| echo(system('CountPoints',scriptn))<Enter>
-
-" Some basics:
-	set nocompatible
-	filetype plugin on
-	syntax on
-	set encoding=utf-8
-	"	set number relativenumber
-	set nonumber
-" Enable autocompletion:
-	set wildmode=longest,list,full
-" Disables automatic commenting on newline:
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>f :Goyo \| set linebreak<CR>
+
+
+" vim markdown
+	let g:vim_markdown_folding_style_pythonic = 1
+	let g:vim_markdown_new_list_item_indent = 0 "avoiding autoindent for list items
+" let g:vim_markdown_folding_level = 1 " not working
+
+"let g:vim_markdown_folding_disabled = 1
+
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	"map <leader>o :setlocal spell! spelllang=en_us<CR>
@@ -90,12 +92,8 @@ set encoding=utf-8
 
 " Ensure files are read as what I want:
 	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
-
-" Readmes autowrap text:
-	"autocmd BufRead,BufNewFile *.md set tw=79
 
 " Use urlscan to choose and open a url:
 	:noremap <leader>u :w<Home> !urlscan -r 'linkhandler {}'<CR>
@@ -247,7 +245,7 @@ set encoding=utf-8
 " MY STUFF
 
 " Miscellaneous
-	filetype plugin indent on " required (but why?)
+	"filetype plugin indent on " required (but why?)
 
 	" Should speed up thing  (scrolling, moving, etc) in vim when using tmux"
 	set ttyfast
@@ -268,28 +266,38 @@ set encoding=utf-8
 
 
 " Deoplete settings
-	" Use deoplete.
-	let g:deoplete#enable_at_startup = 1
-	call deoplete#custom#option('min_pattern_length', 1)
+	"let g:acp_enableAtStartup = 0
+	" let g:deoplete#enable_at_startup = 1
+	" let g:neocomplete#sources#syntax#min_keyword_length = 3
+    " let g:deoplete#enable_smart_case = 1
+	" call deoplete#custom#option('sources', {
+	" 	\ 'cs': ['omnisharp'],
+	" 	\})
+
+
+
 
 " Tab completion
 	inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " omnisharp-vim settings
-	let g:OmniSharp_timeout = 5
-	let g:Omnisharp_start_server = 1
+	"let g:OmniSharp_timeout = 5
+	"let g:Omnisharp_start_server = 1
 	"let g:OmniSharp_server_path = '/home/mbarakatt/.omnisharp/omnisharp-roslyn/omnisharp/OmniSharp.exe'
-	let g:OmniSharp_server_use_mono = 1
-	set completeopt=longest,menuone,preview
-	set previewheight=5
+	"let g:OmniSharp_server_use_mono = 1
+	"set previewheight=5
+	set completeopt+=preview,longest,menuone
+	let g:OmniSharp_server_stdio =1
+	let g:OmniSharp_server_stdio_quickload = 1
+
 
 " ale settings
 	" If ALE is installed, it will automatically be used to asynchronously check your code for errors.  No further configuration is necessary. However, be aware that ALE supports multiple C# linters, and will run all linters that are available on your system. To limit ALE to only use OmniSharp (recommended), add this to your .vimrc:
 	"
-	let g:ale_linters = {
-	\ 'cs': ['OmniSharp']
-	\}
+	" let g:ale_linters = {
+	" \ 'cs': ['OmniSharp']
+	" \}
 
 
 " vim-latex settings
