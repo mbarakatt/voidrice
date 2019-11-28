@@ -17,7 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'jreybert/vimagit'
 	"Plug 'LukeSmithxyz/vimling'
 	"Plug 'vimwiki/vimwiki'
-	"Plug 'mattn/emmet-vim'
+	Plug 'mattn/emmet-vim'
 	"Plug 'easymotion/vim-easymotion'
 	"Plug 'roxma/vim-hug-neovim-rpc'
 	"Plug 'fatih/vim-go'
@@ -405,12 +405,14 @@ let g:tex_fold_enabled = 1
 	inoremap jj <Esc>
 
 " Compile cs files using dotnet build
-	autocmd FileType cs inoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
-	autocmd FileType cs nnoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
+	" autocmd FileType cs inoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
+	" autocmd FileType cs nnoremap <F5> <Esc>:wa<Enter>:!dotnet run<Enter>
+	autocmd FileType cs inoremap <F5> <Esc>:wa<Enter>:!cscmonodel "%"<Enter>
+	autocmd FileType cs nnoremap <F5> <Esc>:wa<Enter>:!cscmonodel "%"<Enter>
 
 " Compile latex file using pdflatex
-	autocmd FileType tex inoremap <F5> <Esc>:wa<Enter>:!pdflatex %<Enter>
-	autocmd FileType tex nnoremap <F5> <Esc>:wa<Enter>:!pdflatex %<Enter>
+	autocmd FileType tex inoremap <F5> <Esc>:wa<Enter>:!pdflatex "%"<Enter>
+	autocmd FileType tex nnoremap <F5> <Esc>:wa<Enter>:!pdflatex "%"<Enter>
 
 " Run py files using python3
 	autocmd FileType python inoremap <F5> <Esc>:wa<Enter>:!python3<space><c-r>%<Enter>
@@ -440,6 +442,25 @@ let g:tex_fold_enabled = 1
 	" hi StatusLine ctermbg=4 ctermfg=black   " 8
 	" hi Search cterm=NONE ctermfg=white ctermbg=grey
 	"
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
+endfunction
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
+
 " Airline theme
 	let g:airline_theme='dracula'
 

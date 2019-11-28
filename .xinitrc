@@ -10,6 +10,7 @@ if [ "$HOSTNAME" = "archlinux-imac" ] ; then
 	# manually type start-barriers in dmenu to start the server on the server machine
 fi
 
+wal --theme base16-dracula
 exec dropbox &
 # exec redshift &
 tty_number=$(who | grep -v pts | awk '{print $2}')
