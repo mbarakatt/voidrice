@@ -1,0 +1,3 @@
+#!/bin/bash
+echo $(ls -pt ~/Downloads | grep -v / | head -1)
+mv ~/Downloads/"$(ls -pt ~/Downloads | grep -v / | head -1)
