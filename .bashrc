@@ -29,4 +29,3 @@ fi
 # export GDK_DPI_SCALE=0.5
 # Create new projects
 alias createconsole="dotnet new console; dotnet new sln; dotnet sln add *.csproj"
-alias mdl='mv ~/Downloads/"$(ls -pt ~/Downloads | grep -v / | head -1)" . '

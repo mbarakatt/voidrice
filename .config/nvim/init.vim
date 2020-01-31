@@ -8,12 +8,14 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'OmniSharp/omnisharp-vim'
 	Plug 'prabirshrestha/asyncomplete.vim'
-	" Plug 'w0rp/ale'
+	Plug 'junegunn/goyo.vim'
+	" Plug 'dkarter/bullets.vim'
+	"Plug 'w0rp/ale'
 	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'lervag/vimtex'
-"	Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
+	"Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
 	"Plug 'jreybert/vimagit'
 	"Plug 'LukeSmithxyz/vimling'
 	"Plug 'vimwiki/vimwiki'
@@ -41,6 +43,18 @@ call plug#end()
 	set wildmode=longest,list,full
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables automatic commenting on newline:
 
+" Increases readability when typing notes or readable stuff
+	" Indents word-wrapped lines as much as the 'parent' line
+	autocmd FileType rmd set breakindent
+	" Ensures word-wrap does not split words
+	autocmd FileType rmd set formatoptions=l
+	autocmd FileType rmd set lbr
+	" Indents word-wrapped lines as much as the 'parent' line
+	autocmd FileType md set breakindent
+	" Ensures word-wrap does not split words
+	autocmd FileType md set formatoptions=l
+	autocmd FileType md set lbr
+
 " vim-Grammalecte
 	" let g:grammalecte_cli_py='/usr/bin/cli.py' " had to create a simlink that pointed to grammalecte_cli_py
 	" map <leader>o <Esc>:GrammalecteCheck<CR><C-j><Down><Down>zt<C-k><C-w>=
@@ -52,11 +66,12 @@ call plug#end()
 
 
 " vim markdown
+	autocmd FileType rmd,md set indentexpr= " avoiding weird bug with new line
 	let g:vim_markdown_folding_style_pythonic = 1
-	let g:vim_markdown_new_list_item_indent = 0 "avoiding autoindent for list items
-" let g:vim_markdown_folding_level = 1 " not working
-
-"let g:vim_markdown_folding_disabled = 1
+	let g:vim_markdown_auto_insert_bullets = 0
+	let g:vim_markdown_new_list_item_indent = 0 "avoiding autoindent for list items " not working?
+	"let g:vim_markdown_folding_level = 1 " not working
+	"let g:vim_markdown_folding_disabled = 1
 
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
@@ -110,7 +125,8 @@ call plug#end()
 	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
 
 " Automatically deletes all trailing whitespace on save.
-	autocmd BufWritePre * %s/\s\+$//e
+	" I removed this because it would sometimes change de cursor position. See: https://stackoverflow.com/questions/35390415/cursor-jump-in-vim-after-save
+	"autocmd BufWritePre * %s/\s\+$//e
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
 	autocmd BufWritePost ~/.bm* !shortcuts
@@ -431,7 +447,7 @@ let g:tex_fold_enabled = 1
 	" inoremap aa à
 
 " Quit and save all
-	nnoremap <leader>s <Esc>:wqa<Enter>
+	nnoremap <leader>s <Esc>:wa<Enter>
 " Quickly insert date (in ISO format)
 	nnoremap Pd <Esc>:put =strftime('%Y-%m-%d')<Enter>
 

@@ -294,18 +294,19 @@ for_window [title="mpvfloat"] border pixel 0
 no_focus [title="mpvfloat"]
 
 # #---Function Buttons---# #
-bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom ~/.readme.mom -Tpdf | zathura -
+# bindsym $mod+F1		exec --no-startup-id groff -kejpt -mom ~/.readme.mom -Tpdf | zathura -
+bindsym $mod+F1		exec --no-startup-id prompt "suspend computer?" "$suspend"
 bindsym $mod+F2		restart
 bindsym $mod+F3		exec --no-startup-id displayselect
-bindsym $mod+F4		exec --no-startup-id prompt "suspend computer?" "$suspend"
+# bindsym $mod+F4		exec --no-startup-id prompt "suspend computer?" "$suspend"
 bindsym $mod+Shift+F4		exec --no-startup-id prompt "Force suspend computer?" "$suspendreally"
-bindsym $mod+F5		exec --no-startup-id $netrefresh
+# bindsym $mod+F5		exec --no-startup-id $netrefresh
 bindsym $mod+F6		exec --no-startup-id $term -e transmission-remote-cli
 bindsym $mod+F7		exec --no-startup-id td-toggle
 # bindsym $mod+F8		exec --no-startup-id ~/.config/mutt/etc/mailsync.sh
 bindsym $mod+F9		exec --no-startup-id dmenumount
 bindsym $mod+F10	exec --no-startup-id dmenuumount
-bindsym $mod+F11	exec --no-startup-id reset-wifi # wait does mod+F5 does the trick?
+# bindsym $mod+F11	exec --no-startup-id reset-wifi # wait does mod+F5 does the trick?
 # bindsym $mod+F12	exec $term -e nmtui
 bindsym $mod+F12	exec --no-startup-id mirror-all-screens
 
