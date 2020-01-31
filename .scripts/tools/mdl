@@ -1,3 +1,4 @@
 #!/bin/bash
-echo $(ls -pt ~/Downloads | grep -v / | head -1)
-mv ~/Downloads/"$(ls -pt ~/Downloads | grep -v / | head -1)
+last_file="$(ls -pt ~/Downloads | grep -v / | head -1)"
+echo "Moving file : " ${last_file} " here."
+mv ~/Downloads/"${last_file}" .
