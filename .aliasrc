@@ -49,7 +49,7 @@ alias mount-linode='umount -f ~/mount/linode ; sshfs linode:  ~/mount/linode'
 alias mount-rpi='umount -f ~/mount/rpi ; sshfs rpi:  ~/mount/rpi'
 
 # Notes
-alias notes="vim -p ~/notes/todos/daily.md ~/notes/personnel/2019/2019.md ~/notes/personnel/arch-guide/arch-guide.md ~/Dropbox/github-clone/marbs/progs.csv"
+alias notes="vim -p ~/notes/todos/daily.md ~/comite/notes.md ~/notes/personnel/2020/2020.md ~/notes/personnel/arch-guide/arch-guide.md ~/Dropbox/github-clone/marbs/progs.csv "
 alias daily="vim ~/notes/todos/daily.md"
 alias journalLG="vim ~/notes/lionel-groulx/Journal_LG_A18/Journal_LG_A18.md"
 alias arch-guide="vim ~/Dropbox/notes/personnel/arch-guide/arch-guide.md"

@@ -1,6 +1,6 @@
 key=$(xkb-switch)
 
-if [ $key = "us" ]
+if [ $key = "us(intl)" ]
 then
 printf " 🇺🇸\n"
 else

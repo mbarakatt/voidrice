@@ -93,7 +93,7 @@ super + backslash
 	$$something
 
 super + F2
-	bspc wm -r	# restarts bspwm
+	bspc wm -r# restarts bspwm
 
 super + F3
 	displayselect
@@ -102,10 +102,10 @@ super + F4
 	prompt "suspend computer?" sudo -A systemctl suspend
 
 {XF86MonBrightnessDown, XF86MonBrightnessUp}
-	{light -U 2, light -A 2}
+	{xbacklight -dec 2 -time 0, xbacklight -inc 2 -time 0}
 
-{XF86KbdBrightnessDown, XF86KbdBrightnessUp}
-	{kb-light - 8, kb-light + 8}
+# {XF86KbdBrightnessDown, XF86KbdBrightnessUp}
+# 	{kb-light - 8, kb-light + 8}
 
 #
 # bspwm hotkeys

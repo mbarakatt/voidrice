@@ -2,7 +2,8 @@
 process_cam=$(ps aux | grep -v grep | grep "mpvfloat tv" | tr -s ' ' | cut -f2 -d ' ' )
 if [ -z $process_cam ]
 then
-	pkill -f /dev/video || mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --geometry=-0-0 --autofit=30%  --title="mpvfloat" tv://
+	# pkill -f /dev/video || mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --geometry=-0-0 --autofit=30%  --title="mpvfloat" tv://
+	pkill -f /dev/video || mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --geometry=-0-0 --autofit=30%  --title="mpvfloat" /dev/video0
 else
 	kill ${process_cam}
 fi

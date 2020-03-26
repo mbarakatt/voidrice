@@ -34,6 +34,7 @@ call plug#end()
 
 
 " Some basics:
+    command W w
 	set nocompatible
 	"filetype plugin on
 	autocmd BufNewFile,BufRead *.md filetype plugin indent off
@@ -394,6 +395,7 @@ let g:tex_fold_enabled = 1
 " The number of spaces a tab is. the following two lines must be present for > to work properly
 	set tabstop=4
 	set shiftwidth=4
+	set expandtab
 
 " backspace that makes sense
 	set backspace=indent,eol,start
