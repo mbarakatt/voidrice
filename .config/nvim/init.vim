@@ -42,6 +42,7 @@ call plug#end()
 	set encoding=utf-8
 	set nonumber
 	set wildmode=longest,list,full
+    set showbreak=\ \ \ ↪
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disables automatic commenting on newline:
 
 " Increases readability when typing notes or readable stuff
