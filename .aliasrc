@@ -35,7 +35,6 @@ alias YT="youtube-viewer"
 # Miscelaneous
 alias compilec="g++ --std=c++11 *.cpp -fextended-identifiers"
 alias vimall='vim -p $(ls *.{cpp,h,py,cs})'
-alias maim=alias maim="maim ~/screenshots/$(date +%s).png"
 
 # Mounting
 alias mountmusic='umount -f ~/music-collection/ ; sshfs 192.168.2.16:Dropbox/Music\ Collection/  ~/music-collection/'

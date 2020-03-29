@@ -30,6 +30,7 @@ echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc
 export XDG_CONFIG_HOME="$HOME/.config"
 export largeDPI=192
 export smallDPI=48
+
 # Start graphical server if i3 not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 [ "$(tty)" = "/dev/tty2" ] && ! pgrep -x i3 >/dev/null && exec startx
@@ -38,19 +39,15 @@ export smallDPI=48
 # Switch escape and caps if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 
-
-
-
 # To cycle through options
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
-# Change diretory with fzf
+# Change directory with fzf
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
-

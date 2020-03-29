@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/plugged')
 	"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 	Plug 'lervag/vimtex'
 	"Plug 'Konfekt/FastFold' " Essential if you want to use folding in vimlatex otherwise really slow
 	"Plug 'jreybert/vimagit'
@@ -91,10 +92,6 @@ call plug#end()
 " Check file in shellcheck:
 	map <leader>s :!clear && shellcheck %<CR>
 
-" Open my bibliography file in split
-	map <leader>b :vsp<space>$BIB<CR>
-	map <leader>r :vsp<space>$REFER<CR>
-
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
 
@@ -121,20 +118,11 @@ call plug#end()
 	map <C-p> "+P
 	inoremap <C-v> <Esc>"+pa
 
-" Enable Goyo by default for mutt writting
-	" Goyo's width will be the line limit in mutt.
-	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo
-
-" Automatically deletes all trailing whitespace on save.
-	" I removed this because it would sometimes change de cursor position. See: https://stackoverflow.com/questions/35390415/cursor-jump-in-vim-after-save
-	"autocmd BufWritePre * %s/\s\+$//e
-
 " When shortcut files are updated, renew bash and ranger configs with new material:
-	autocmd BufWritePost ~/.bm* !shortcuts
+	autocmd BufWritePost ~/.bmfiles,~/.bmdirs !shortcuts
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
-	autocmd BufWritePost ~/.Xresources,~/.Xdefaults !xrdb %
+	autocmd BufWritePost ~/.Xresources !xrdb %
 
 " Navigating with guides
 "	inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
@@ -443,17 +431,12 @@ let g:tex_fold_enabled = 1
 	" nnoremap Pt <Esc>:wa<Enter>:!CountPoints<space>$( ls *.cpp<space>*.h<space>*.cs<space>*.py)<Enter>
 	nnoremap Pt <Esc>:wa<Enter>:redir => scriptn \| sil exe 'args' \| redir end \| echo(system('CountPoints',scriptn))<Enter>
 
-" Francais accent shortcuts (dangerous?)
-	" inoremap ee é
-	" inoremap 'e è
-	" inoremap ^e ê
-	" inoremap aa à
-
 " Quit and save all
 	nnoremap <leader>s <Esc>:wa<Enter>
 " Quickly insert date (in ISO format)
-	nnoremap Pd <Esc>:put =strftime('%Y-%m-%d')<Enter>
-
+  nmap Pd i<C-R>=strftime("%Y-%m-%d ")<CR><Esc>
+" Quickly insert hour and minute (in ISO format)
+  nmap PD i<C-R>=strftime("%H:%M ")<CR><Esc>
 " To use fzf in Vim, add the following line to your .vimrc:
   set rtp+=/usr/local/opt/fzf
 

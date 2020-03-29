@@ -55,10 +55,8 @@ exec --no-startup-id mpd
 exec --no-startup-id setbg
 # Starts dunst for notifications:
 exec --no-startup-id dunst
-# Composite manager:
-exec --no-startup-id xcompmgr
 # Runs the key remapping scripts
-exec --no-startup-id remaps
+# exec --no-startup-id remaps
 # Unclutter makes the mouse invisible after a brief period
 exec --no-startup-id unclutter
 # Run the script to update the mpd i3block on change.
@@ -115,7 +113,7 @@ bindsym $mod+Shift+Return	exec --no-startup-id samedir
 
 bindsym $mod+Shift+space 	floating toggle
 # bindsym $mod+space		focus mode_toggle
-bindsym $mod+space			exec xkb-switch -n ; exec pkill -RTMIN+13 i3blocks
+# bindsym $mod+space			exec xkb-switch -n ; exec pkill -RTMIN+13 i3blocks
 
 bindsym $mod+Escape		workspace prev
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
@@ -123,7 +121,7 @@ bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 # bindsym $mod+BackSpace
 bindsym $mod+Shift+BackSpace	exec --no-startup-id prompt "Reboot computer?" "$reboot"
 
-bindsym $mod+grave		exec --no-startup-id dmenuunicode
+bindsym $mod+dead_grave		exec --no-startup-id dmenuunicode
 ##bindsym $mod+asciitilde
 
 #STOP/HIDE EVERYTHING:
@@ -175,7 +173,7 @@ bindsym $mod+Shift+a		exec $term -e pulsemixer
 bindsym $mod+s			layout stacking
 bindsym $mod+Shift+s	layout splith
 
-bindsym $mod+d			exec --no-startup-id dmenu_run
+bindsym $mod+d			exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
 
 set $freeze Distraction-free mode (super+shift+f to reactivate bindings)
@@ -206,7 +204,7 @@ bindsym $mod+Shift+z		gaps outer current minus 5
 bindsym $mod+x			exec --no-startup-id lockscreen
 bindsym $mod+Shift+x		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
 
-bindsym $mod+c			exec --no-startup-id ddspawn dropdownnotes
+bindsym $mod+c			exec --no-startup-id screenshot
 bindsym $mod+Shift+c		exec --no-startup-id camtoggle
 
 #bindsym $mod+v
