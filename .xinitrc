@@ -9,9 +9,9 @@
 # Theses lines can be here or in an Xconfig file.
 # I added super+space as a shortcut to toggle between the two layout in i3 
     # Setting the compose key to Right Alt
-        setxkbmap -option compose:Alt_R
+        # setxkbmap -option compose:Alt_R
     # Configuring two keyboard layouts
-        setxkbmap -model pc104 -layout us,ca -variant intl,multi
+        # setxkbmap -model pc104 -layout us,ca -variant intl,multi
 
 wal --theme base16-dracula
 
